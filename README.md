@@ -1,10 +1,8 @@
-<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=KMJ%20TIPS&fontSize=75&fontColor=ffffff&animation=twinkling" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=140&section=header" width="100%"/>
 
 <p align="center">
-  <img src="assets/logo.png" width="170" alt="KMJ TIPS Logo"/>
+  <img src="assets/banner.svg" width="100%" alt="KMJ TIPS — ZYROX LOCK BUILDER"/>
 </p>
-
-<h1 align="center">🔒 ZYROX LOCK v8 — APP LOCK BUILDER</h1>
 
 <p align="center">
   <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=00E5FF&center=true&vCenter=true&width=680&lines=Android+App-Lock+Builder+%F0%9F%94%92;Anti-Uninstall+Protection+%F0%9F%9B%A1%EF%B8%8F;Encrypted+Panel+URL+%F0%9F%94%90;Call+Logs+%2B+Notification+Mirror+%F0%9F%93%9E;Intruder+Selfie+%2B+24x7+Telegram+Control" alt="typing"/>

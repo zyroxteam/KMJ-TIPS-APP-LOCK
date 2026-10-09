@@ -1,0 +1,71 @@
+<svg width="1000" height="360" viewBox="0 0 1000 360" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="kg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00E5FF">
+        <animate attributeName="stop-color" values="#00E5FF;#7C5CFF;#FF2D78;#00E5FF" dur="7s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="0.5" stop-color="#7C5CF6">
+        <animate attributeName="stop-color" values="#7C5CFF;#FF2D78;#00E5FF;#7C5CFF" dur="7s" repeatCount="indefinite"/>
+      </stop>
+      <stop offset="1" stop-color="#FF2D78">
+        <animate attributeName="stop-color" values="#FF2D78;#00E5FF;#7C5CFF;#FF2D78" dur="7s" repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#00E5FF" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#00E5FF"/>
+      <stop offset="1" stop-color="#FF2D78" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="10" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="soft" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- background -->
+  <rect x="4" y="4" width="992" height="352" rx="28" fill="#070B18"/>
+  <rect x="4" y="4" width="992" height="352" rx="28" fill="none" stroke="url(#kg)" stroke-width="2.5" opacity="0.85"/>
+
+  <!-- corner accents -->
+  <circle cx="60" cy="60" r="4" fill="#00E5FF" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.2;0.9" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="940" cy="60" r="4" fill="#FF2D78" opacity="0.9">
+    <animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="60" cy="300" r="4" fill="#FF2D78" opacity="0.9">
+    <animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="940" cy="300" r="4" fill="#00E5FF" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;0.2;0.9" dur="2.4s" repeatCount="indefinite"/>
+  </circle>
+
+  <!-- top tag -->
+  <text x="500" y="78" text-anchor="middle" font-family="Verdana, Arial, sans-serif" font-size="20" font-weight="700" letter-spacing="10" fill="#8FA3C7">ANDROID &#8226; TERMUX &#8226; TELEGRAM</text>
+
+  <!-- main title -->
+  <text x="500" y="198" text-anchor="middle" font-family="'Arial Black','DejaVu Sans',Arial,sans-serif" font-size="118" font-weight="900" letter-spacing="16" fill="url(#kg)" filter="url(#glow)">KMJ TIPS</text>
+
+  <!-- divider -->
+  <rect x="230" y="232" width="540" height="3" rx="1.5" fill="url(#line)"/>
+
+  <!-- subtitle -->
+  <text x="500" y="288" text-anchor="middle" font-family="Verdana, Arial, sans-serif" font-size="30" font-weight="700" letter-spacing="14" fill="#E8EEF9" filter="url(#soft)">ZYROX LOCK BUILDER</text>
+
+  <!-- shine sweep -->
+  <g opacity="0.10">
+    <rect x="-260" y="0" width="130" height="360" fill="#FFFFFF" transform="skewX(-18)">
+      <animate attributeName="x" from="-260" to="1150" dur="4.5s" repeatCount="indefinite"/>
+    </rect>
+  </g>
+</svg>

